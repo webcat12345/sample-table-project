@@ -1,5 +1,6 @@
-import {Component} from "@angular/core";
+import {Component, ViewChild} from "@angular/core";
 import {Http} from "@angular/http";
+import { ModalDirective } from 'ng2-bootstrap';
 
 @Component({
     selector: 'demo',
@@ -12,6 +13,7 @@ export class DemoComponent implements OnInit {
     public rowsOnPage = 10;
     public sortBy = "email";
     public sortOrder = "asc";
+    public currentItem;
 
     constructor(private http: Http) {
     }
@@ -30,14 +32,30 @@ export class DemoComponent implements OnInit {
     }
 
     public remove(item){
-        let index = this.data.indexOf(item);
+        this.currentItem = item;
+        this.showChildModal();
+    }
+
+    public onConfirmDelete(){
+        let index = this.data.indexOf(this.currentItem);
         if (index > -1) {
             this.data.splice(index, 1);
+            this.hideChildModal();
         }
     }
     
     public sortByWordLength = (a: any) => {
         return a.city.length;
+    }
+
+    @ViewChild('childModal') public childModal:ModalDirective;
+
+    public showChildModal():void {
+        this.childModal.show();
+    }
+
+    public hideChildModal():void {
+        this.childModal.hide();
     }
   
 }

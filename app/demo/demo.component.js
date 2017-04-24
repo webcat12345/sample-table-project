@@ -1,4 +1,4 @@
-System.register(["@angular/core", "@angular/http"], function(exports_1, context_1) {
+System.register(["@angular/core", "@angular/http", 'ng2-bootstrap'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(["@angular/core", "@angular/http"], function(exports_1, context_
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, http_1;
+    var core_1, http_1, ng2_bootstrap_1;
     var DemoComponent;
     return {
         setters:[
@@ -19,6 +19,9 @@ System.register(["@angular/core", "@angular/http"], function(exports_1, context_
             },
             function (http_1_1) {
                 http_1 = http_1_1;
+            },
+            function (ng2_bootstrap_1_1) {
+                ng2_bootstrap_1 = ng2_bootstrap_1_1;
             }],
         execute: function() {
             DemoComponent = (function () {
@@ -45,11 +48,26 @@ System.register(["@angular/core", "@angular/http"], function(exports_1, context_
                     return +num;
                 };
                 DemoComponent.prototype.remove = function (item) {
-                    var index = this.data.indexOf(item);
+                    this.currentItem = item;
+                    this.showChildModal();
+                };
+                DemoComponent.prototype.onConfirmDelete = function () {
+                    var index = this.data.indexOf(this.currentItem);
                     if (index > -1) {
                         this.data.splice(index, 1);
+                        this.hideChildModal();
                     }
                 };
+                DemoComponent.prototype.showChildModal = function () {
+                    this.childModal.show();
+                };
+                DemoComponent.prototype.hideChildModal = function () {
+                    this.childModal.hide();
+                };
+                __decorate([
+                    core_1.ViewChild('childModal'), 
+                    __metadata('design:type', ng2_bootstrap_1.ModalDirective)
+                ], DemoComponent.prototype, "childModal", void 0);
                 DemoComponent = __decorate([
                     core_1.Component({
                         selector: 'demo',
