@@ -6,13 +6,15 @@ import { HttpModule } from "@angular/http";
 
 import { DemoComponent }   from './demo.component';
 import { DataFilterPipe }   from './data-filter.pipe';
+import { ModalModule } from 'ng2-bootstrap';
 
 @NgModule({
   imports:      [ 
     CommonModule, 
     DataTableModule, 
     FormsModule,
-    HttpModule
+    HttpModule,
+    ModalModule.forRoot()
   ],
   declarations: [ DemoComponent, DataFilterPipe ],
   exports: [DemoComponent]

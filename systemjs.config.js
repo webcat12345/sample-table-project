@@ -55,7 +55,9 @@
       'typescript': 'npm:typescript@2.0.3/lib/typescript.js',
 
       'angular2-datatable': 'npm:angular2-datatable@0.5.2',
-      'lodash': 'npm:lodash/lodash.js'
+      'lodash': 'npm:lodash/lodash.js',
+        'moment': 'node_modules/moment',
+        'ng2-bootstrap':              'node_modules/ng2-bootstrap'
 
     },
     // packages tells the System loader how to load when no filename and/or no extension
@@ -70,7 +72,10 @@
       'angular2-datatable': {
         main: 'index.js',
         defaultExtension: 'js'
-      }
+      },
+        // ng2-bootstrap
+        'ng2-bootstrap':              { format: 'cjs', main: 'bundles/ng2-bootstrap.umd.js', defaultExtension: 'js' },
+        'moment':                     { main: 'moment.js', defaultExtension: 'js' }
     }
   });
 

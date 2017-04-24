@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/common', "@angular/forms", "angular2-datatable", "@angular/http", './demo.component', './data-filter.pipe'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/common', "@angular/forms", "angular2-datatable", "@angular/http", './demo.component', './data-filter.pipe', 'ng2-bootstrap'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/common', "@angular/forms", "angular2
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, common_1, forms_1, angular2_datatable_1, http_1, demo_component_1, data_filter_pipe_1;
+    var core_1, common_1, forms_1, angular2_datatable_1, http_1, demo_component_1, data_filter_pipe_1, ng2_bootstrap_1;
     var DemoModule;
     return {
         setters:[
@@ -34,6 +34,9 @@ System.register(['@angular/core', '@angular/common', "@angular/forms", "angular2
             },
             function (data_filter_pipe_1_1) {
                 data_filter_pipe_1 = data_filter_pipe_1_1;
+            },
+            function (ng2_bootstrap_1_1) {
+                ng2_bootstrap_1 = ng2_bootstrap_1_1;
             }],
         execute: function() {
             DemoModule = (function () {
@@ -45,7 +48,8 @@ System.register(['@angular/core', '@angular/common', "@angular/forms", "angular2
                             common_1.CommonModule,
                             angular2_datatable_1.DataTableModule,
                             forms_1.FormsModule,
-                            http_1.HttpModule
+                            http_1.HttpModule,
+                            ng2_bootstrap_1.ModalModule.forRoot()
                         ],
                         declarations: [demo_component_1.DemoComponent, data_filter_pipe_1.DataFilterPipe],
                         exports: [demo_component_1.DemoComponent]
