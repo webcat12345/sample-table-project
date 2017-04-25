@@ -1,5 +1,10 @@
 # sample-table-project
 
+### Running Project
+* Install Dependencies : `npm install`
+* Run project on localhost: : `npm start`
+* Visit `http://localhost:3000`
+
 ### Project spec
 
 ```
